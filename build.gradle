@@ -1,5 +1,6 @@
 plugins {
     id 'java-gradle-plugin'
+    id 'maven'
 }
 
 repositories {
@@ -11,8 +12,10 @@ repositories {
 }
 
 group = 'com.github.eXsio'
-version = '1.0-SNAPSHOT'
-sourceCompatibility = '11'
+version = '0.0.3'
+
+sourceCompatibility = 11
+targetCompatibility = 11
 
 dependencies {
     compileOnly  'com.github.eXsio:querydsl-entityql:3.0.1'
@@ -35,10 +38,6 @@ dependencies {
     testImplementation 'com.github.eXsio:querydsl-entityql:3.0.1'
 }
 
-
-sourceCompatibility = 11
-targetCompatibility = 11
-
 gradlePlugin {
     plugins {
         greeting {
@@ -46,4 +45,8 @@ gradlePlugin {
             implementationClass = 'pl.exsio.querydsl.entityql.GeneratePlugin'
         }
     }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
