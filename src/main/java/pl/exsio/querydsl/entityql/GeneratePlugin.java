@@ -29,7 +29,6 @@ public class GeneratePlugin implements Plugin<Project> {
         generateTask.setDescription("Generates EntityQL Static Query Models.");
         generateTask.setExtension(generatePluginExtension);
         generateTask.setBaseDir(project.getBuildDir());
-        generateTask.getLogging().setLevel(LogLevel.INFO);
         project.afterEvaluate(evaluatedProject -> {
             SourceSetContainer sourceSets = (SourceSetContainer) project.getProperties().get("sourceSets");
             Set<File> paths;

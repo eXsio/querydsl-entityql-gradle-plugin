@@ -92,7 +92,7 @@ public class Generator {
 
     void setDefaultDestinationPathIfNeeded(String baseDir) {
         if (destinationPath == null) {
-            destinationPath = baseDir + SEPARATOR + "src" + SEPARATOR + "main" + SEPARATOR + "java";
+            destinationPath = baseDir + SEPARATOR + ".." + SEPARATOR + "src" + SEPARATOR + "main" + SEPARATOR + "java";
         }
     }
 
