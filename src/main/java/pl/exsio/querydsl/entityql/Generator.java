@@ -72,7 +72,7 @@ public class Generator {
     }
 
     public List<String> getSourceClasses() {
-        if(sourceClasses == null) {
+        if (sourceClasses == null) {
             return new ArrayList<>();
         }
         return sourceClasses;
@@ -92,7 +92,7 @@ public class Generator {
 
     void setDefaultDestinationPathIfNeeded(String baseDir) {
         if (destinationPath == null) {
-            destinationPath = baseDir + SEPARATOR + ".." + SEPARATOR + "src" + SEPARATOR + "main" + SEPARATOR + "java";
+            destinationPath = baseDir + SEPARATOR + "src" + SEPARATOR + "main" + SEPARATOR + "java";
         }
     }
 

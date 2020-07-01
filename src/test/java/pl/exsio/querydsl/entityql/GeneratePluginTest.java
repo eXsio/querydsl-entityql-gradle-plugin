@@ -38,7 +38,10 @@ public class GeneratePluginTest {
         File buildFile = testProjectDir.newFile("build.gradle");
         Files.write(buildFile.toPath(), ("entityql {generators=[\n" +
                 "generator={\n" +
-                "type='JPA'\n" +
+                "type='SPRING_DATA_JDBC'\n" +
+                "params=[\n" +
+                "namingStrategy : 'pl.exsio.querydsl.entityql.jdbc.UpperCaseWithUnderscoresNamingStrategy'" +
+                "]\n" +
                 "sourcePackage='pl.exsio.querydsl.entityql'\n" +
                 "destinationPackage='pl.exsio.querydsl.entityql.generated'}\n" +
                 "]\n" +
@@ -57,8 +60,11 @@ public class GeneratePluginTest {
         //then:
         assertThat(generators).isNotNull();
         assertThat(generators.size()).isEqualTo(1);
-        assertThat(generators.get(0).getType()).isEqualTo(Generator.Type.JPA);
+        assertThat(generators.get(0).getType()).isEqualTo(Generator.Type.SPRING_DATA_JDBC);
         assertThat(generators.get(0).getSourcePackage()).isEqualTo("pl.exsio.querydsl.entityql");
+        assertThat(generators.get(0).getParams().size()).isEqualTo(1);
+        assertThat(generators.get(0).getParams().containsKey("namingStrategy")).isTrue();
+        assertThat(generators.get(0).getParams().get("namingStrategy")).isEqualTo("pl.exsio.querydsl.entityql.jdbc.UpperCaseWithUnderscoresNamingStrategy");
         assertThat(generators.get(0).getDestinationPackage()).isEqualTo("pl.exsio.querydsl.entityql.generated");
         testProjectDir.delete();
     }
