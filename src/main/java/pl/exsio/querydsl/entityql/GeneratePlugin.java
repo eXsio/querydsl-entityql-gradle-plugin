@@ -6,6 +6,7 @@ package pl.exsio.querydsl.entityql;
 import org.gradle.api.Project;
 import org.gradle.api.Plugin;
 import org.gradle.api.internal.file.UnionFileCollection;
+import org.gradle.api.logging.LogLevel;
 import org.gradle.api.plugins.BasePlugin;
 import org.gradle.api.tasks.SourceSet;
 import org.gradle.api.tasks.SourceSetContainer;
@@ -28,6 +29,7 @@ public class GeneratePlugin implements Plugin<Project> {
         generateTask.setDescription("Generates EntityQL Static Query Models.");
         generateTask.setExtension(generatePluginExtension);
         generateTask.setBaseDir(project.getBuildDir());
+        generateTask.getLogging().setLevel(LogLevel.INFO);
         project.afterEvaluate(evaluatedProject -> {
             SourceSetContainer sourceSets = (SourceSetContainer) project.getProperties().get("sourceSets");
             Set<File> paths;
