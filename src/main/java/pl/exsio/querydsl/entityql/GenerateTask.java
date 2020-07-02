@@ -1,6 +1,7 @@
 package pl.exsio.querydsl.entityql;
 
 import org.gradle.api.DefaultTask;
+import org.gradle.api.tasks.Internal;
 import org.gradle.api.tasks.TaskAction;
 import org.reflections.Reflections;
 import org.reflections.scanners.FieldAnnotationsScanner;
@@ -102,6 +103,7 @@ public class GenerateTask extends DefaultTask {
         this.sourcePaths = sourcePaths;
     }
 
+    @Internal
     public List<Generator> getGenerators() {
         return extension.getGenerators();
     }
