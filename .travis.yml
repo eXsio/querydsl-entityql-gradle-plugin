@@ -1,7 +1,6 @@
 language: java
+before_install:
+  - chmod +x gradlew
 jdk:
   - openjdk8
-script:
-  - chmod +x ./gradlew build connectedCheck
-  - ./gradlew check
 sudo: false
