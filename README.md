@@ -1,7 +1,7 @@
 # Static Code Generation for QueryDSL EntityQL 
 
-[![Build Status](https://travis-ci.org/eXsio/querydsl-entityql-gradle-plugin.svg?branch=master)](https://travis-ci.org/eXsio/querydsl-entityql-maven-plugin)
-[![](https://jitpack.io/v/eXsio/querydsl-entityql-gradle-plugin.svg)](https://jitpack.io/#eXsio/querydsl-entityql-maven-plugin)
+[![Build Status](https://travis-ci.org/eXsio/querydsl-entityql-gradle-plugin.svg?branch=master)](https://travis-ci.org/eXsio/querydsl-entityql-gradle-plugin)
+[![](https://jitpack.io/v/eXsio/querydsl-entityql-gradle-plugin.svg)](https://jitpack.io/#eXsio/querydsl-entityql-gradle-plugin)
 
 This repository is a part of [EntityQL](https://github.com/eXsio/querydsl-entityql) project.
 It is a Gradle Plugin that generates QueryDSL-SQL compatible Static Models from JPA Entities. 
