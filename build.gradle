@@ -12,13 +12,13 @@ repositories {
 }
 
 group = 'com.github.eXsio'
-version = '0.0.10'
+version = '0.0.11'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    implementation  'com.github.eXsio:querydsl-entityql:3.0.4'
+    implementation  'com.github.eXsio:querydsl-entityql:3.1.0'
     implementation 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final'
     implementation 'com.querydsl:querydsl-sql:4.2.2'
     implementation 'org.springframework.data:spring-data-jdbc:1.1.1.RELEASE'
