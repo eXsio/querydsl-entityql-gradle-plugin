@@ -16,6 +16,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.BiFunction;
@@ -64,9 +65,14 @@ public class GenerateTask extends DefaultTask {
         getLogger().info("Generating EntityQL Static Models from package {} to package {}, destination path: {}",
                 generator.getSourcePackage(), generator.getDestinationPackage(), generator.getDestinationPath()
         );
-        Set<Class<?>> entityClasses = REFLECTION_SCANNERS.get(generator.getType()).apply(generator, classLoader);
-        for (String sourceClass : generator.getSourceClasses()) {
-            entityClasses.add(loadClass(classLoader, sourceClass));
+        Set<Class<?>> entityClasses = new HashSet<>();
+        if (sourcePackageNotEmpty(generator)) {
+            entityClasses.addAll(REFLECTION_SCANNERS.get(generator.getType()).apply(generator, classLoader));
+        }
+        if(generator.getSourceClasses() != null) {
+            for (String sourceClass : generator.getSourceClasses()) {
+                entityClasses.add(loadClass(classLoader, sourceClass));
+            }
         }
         getLogger().info("Found {} Entity Classes to export in package {}", entityClasses.size(),
                 generator.getSourcePackage());
@@ -79,6 +85,10 @@ public class GenerateTask extends DefaultTask {
                     generator.getDestinationPath()
             );
         }
+    }
+
+    private boolean sourcePackageNotEmpty(Generator generator) {
+        return generator.getSourcePackage() != null && !generator.getSourcePackage().trim().equals("");
     }
 
     private URLClassLoader classLoader() throws Exception {
