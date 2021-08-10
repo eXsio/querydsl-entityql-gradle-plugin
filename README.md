@@ -1,6 +1,6 @@
 # Static Code Generation for QueryDSL EntityQL 
 
-[![Build Status](https://travis-ci.org/eXsio/querydsl-entityql-gradle-plugin.svg?branch=master)](https://travis-ci.org/eXsio/querydsl-entityql-gradle-plugin)
+[![Build Status](https://www.travis-ci.com/eXsio/querydsl-entityql-gradle-plugin.svg?branch=master)](https://www.travis-ci.com/eXsio/querydsl-entityql-gradle-plugin.svg?branch=master)
 [![](https://jitpack.io/v/eXsio/querydsl-entityql-gradle-plugin.svg)](https://jitpack.io/#eXsio/querydsl-entityql-gradle-plugin)
 
 This repository is a part of [EntityQL](https://github.com/eXsio/querydsl-entityql) project.
